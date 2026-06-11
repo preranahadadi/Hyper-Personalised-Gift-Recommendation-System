@@ -1,0 +1,308 @@
+[
+  {
+    "name": "Aarav Mehta",
+    "role": "VP Sales",
+    "company": "Acme Corp",
+    "location": "Bengaluru, India",
+    "linkedin_profile": {
+      "headline": "VP Sales at Acme Corp | Enterprise SaaS | GTM Leadership",
+      "about": "I enjoy building high-performing revenue teams and scaling SaaS businesses across India and Southeast Asia.",
+      "experience": [
+        {
+          "title": "VP Sales",
+          "company": "Acme Corp",
+          "description": "Leading enterprise sales, strategic accounts, and GTM expansion."
+        },
+        {
+          "title": "Regional Sales Director",
+          "company": "Salesforce",
+          "description": "Managed enterprise accounts across BFSI and retail."
+        }
+      ],
+      "recent_posts": [
+        "Great sales teams are built on trust, coaching, and consistency.",
+        "India's SaaS ecosystem is entering an exciting new phase.",
+        "Still recovering from yesterday's India vs Australia match. What a game!"
+      ],
+      "recent_comments": [
+        "Completely agree — pipeline discipline matters more than heroic end-of-quarter selling.",
+        "Loved this take on customer-led growth.",
+        "Cricket teaches leadership better than most management books."
+      ],
+      "engaged_topics": [
+        "Cricket",
+        "Revenue leadership",
+        "SaaS GTM",
+        "Customer-led growth",
+        "Team building"
+      ]
+    },
+    "relationship_context": {
+      "relationship_type": "Prospective customer",
+      "last_interaction": "Positive discovery call last week",
+      "business_goal": "Nurture relationship before follow-up meeting"
+    },
+    "gift_context": {
+      "occasion": "Post-meeting thank you",
+      "budget_min": 3000,
+      "budget_max": 5000,
+      "currency": "INR",
+      "country": "India"
+    }
+  },
+  {
+    "name": "Sarah Chen",
+    "role": "CTO",
+    "company": "NexaAI",
+    "location": "San Francisco, USA",
+    "linkedin_profile": {
+      "headline": "CTO at NexaAI | ML Infrastructure | Building AI at Scale",
+      "about": "Passionate about democratising AI infrastructure. Former ML engineer at Google. I love open-source contributions and hiking the Sierras on weekends.",
+      "experience": [
+        {
+          "title": "CTO",
+          "company": "NexaAI",
+          "description": "Leading technical strategy and ML infrastructure for an AI-first enterprise platform."
+        },
+        {
+          "title": "Senior Staff ML Engineer",
+          "company": "Google",
+          "description": "Built distributed training infrastructure for large language models."
+        }
+      ],
+      "recent_posts": [
+        "Just submitted my first PR to the llama.cpp repo. The community there is incredible.",
+        "Spending the weekend hiking Yosemite. Best debugging sessions happen on trails.",
+        "Hot take: most AI products fail at the data pipeline, not the model."
+      ],
+      "recent_comments": [
+        "Totally agree on the observability point — we use OpenTelemetry for our ML pipelines.",
+        "Rust for ML tooling is underrated. The compile-time guarantees save so much grief.",
+        "Coffee-to-code ratio is my main productivity metric."
+      ],
+      "engaged_topics": [
+        "Open source AI",
+        "MLOps",
+        "Hiking and outdoors",
+        "Specialty coffee",
+        "Rust programming"
+      ]
+    },
+    "relationship_context": {
+      "relationship_type": "Strategic partner",
+      "last_interaction": "Joint webinar last month",
+      "business_goal": "Strengthen partnership before annual contract renewal"
+    },
+    "gift_context": {
+      "occasion": "Partnership milestone",
+      "budget_min": 50,
+      "budget_max": 100,
+      "currency": "USD",
+      "country": "USA"
+    }
+  },
+  {
+    "name": "James Whitfield",
+    "role": "CFO",
+    "company": "Meridian Capital",
+    "location": "Bengaluru, India",
+    "linkedin_profile": {
+      "headline": "CFO at Meridian Capital | Financial Strategy | Private Equity",
+      "about": "Two decades in financial services. I believe in disciplined capital allocation and long-term value creation. Outside work, you will find me on the golf course or exploring single malts.",
+      "experience": [
+        {
+          "title": "CFO",
+          "company": "Meridian Capital",
+          "description": "Overseeing financial operations, investor relations, and strategic M&A activity."
+        },
+        {
+          "title": "VP Finance",
+          "company": "Barclays",
+          "description": "Led structured finance and leveraged buyout analysis teams."
+        }
+      ],
+      "recent_posts": [
+        "Exceptional round at Wentworth today. Golf really does teach patience.",
+        "The macro environment demands more rigorous scenario planning. Sharing our framework.",
+        "Board meetings are more productive when the CFO tells the story, not just the numbers."
+      ],
+      "recent_comments": [
+        "Agreed — IRR without DPI tells only half the story.",
+        "Peat and smoke: the Islay distilleries are in a class of their own.",
+        "Governance is a feature, not overhead. More boards should take note."
+      ],
+      "engaged_topics": [
+        "Golf",
+        "Private equity",
+        "Scotch whisky",
+        "Financial strategy",
+        "Corporate governance"
+      ]
+    },
+    "relationship_context": {
+      "relationship_type": "Client",
+      "last_interaction": "Quarterly business review this week",
+      "business_goal": "Retain and expand existing account"
+    },
+    "gift_context": {
+      "occasion": "End of year thank you",
+      "budget_min": 5000,
+      "budget_max": 10000,
+      "currency": "INR",
+      "country": "India"
+    }
+  },
+  {
+    "name": "Priya Nair",
+    "role": "Head of Product",
+    "company": "FinStack",
+    "location": "Singapore",
+    "linkedin_profile": {
+      "headline": "Head of Product at FinStack | Fintech | User-Centric Design | SEA Growth",
+      "about": "I build fintech products that make sense to real people. Certified yoga instructor on weekends. Obsessed with Singaporean food and travel photography.",
+      "experience": [
+        {
+          "title": "Head of Product",
+          "company": "FinStack",
+          "description": "Driving product roadmap for B2B payments and embedded finance platform across SEA."
+        },
+        {
+          "title": "Senior Product Manager",
+          "company": "Grab",
+          "description": "Led GrabPay consumer experience and merchant onboarding."
+        }
+      ],
+      "recent_posts": [
+        "Just wrapped our design sprint for the new onboarding flow. User testing results were eye-opening.",
+        "Morning yoga before a packed product review day. Balance in all things.",
+        "Weekend in Penang — the char kway teow at the hawker stalls is unmatched."
+      ],
+      "recent_comments": [
+        "Jobs-to-be-done framing changed how I write PRDs. Highly recommend.",
+        "Figma dev mode is a game changer for PM-eng handoffs.",
+        "Great read on mindfulness in leadership — it is undervalued in product culture."
+      ],
+      "engaged_topics": [
+        "Product management",
+        "Yoga and mindfulness",
+        "Travel photography",
+        "Southeast Asian food",
+        "Fintech design"
+      ]
+    },
+    "relationship_context": {
+      "relationship_type": "Prospective customer",
+      "last_interaction": "Product demo call this week",
+      "business_goal": "Convert from trial to paid plan"
+    },
+    "gift_context": {
+      "occasion": "Post-demo thank you",
+      "budget_min": 50,
+      "budget_max": 100,
+      "currency": "SGD",
+      "country": "Singapore"
+    }
+  },
+  {
+    "name": "Lars Eriksson",
+    "role": "Engineering Lead",
+    "company": "AutoEdge GmbH",
+    "location": "Berlin, Germany",
+    "linkedin_profile": {
+      "headline": "Engineering Lead at AutoEdge | Embedded Systems | Rust | Automotive Software",
+      "about": "Building safety-critical software for next-gen vehicles. Open source contributor. Weekend cyclist and amateur photographer. Craft beer enthusiast.",
+      "experience": [
+        {
+          "title": "Engineering Lead",
+          "company": "AutoEdge GmbH",
+          "description": "Leading a team of 12 engineers building AUTOSAR-compliant embedded software stacks."
+        },
+        {
+          "title": "Senior Software Engineer",
+          "company": "Bosch",
+          "description": "Developed RTOS firmware for automotive ECUs."
+        }
+      ],
+      "recent_posts": [
+        "Switched our CI pipeline to deterministic builds — reproducibility is non-negotiable in automotive.",
+        "120km weekend ride through the Brandenburg countryside. Legs are done.",
+        "Rust in embedded is not just hype — we have eliminated an entire class of memory bugs."
+      ],
+      "recent_comments": [
+        "Async Rust is finally clicking for me. The borrow checker and embedded constraints are a natural fit.",
+        "Great point on functional safety — ISO 26262 is a floor, not a ceiling.",
+        "That Dunkel from Heidenpeters Brauerei is something else."
+      ],
+      "engaged_topics": [
+        "Rust programming",
+        "Road cycling",
+        "Craft beer",
+        "Photography",
+        "Embedded systems"
+      ]
+    },
+    "relationship_context": {
+      "relationship_type": "Conference connection",
+      "last_interaction": "Met at Embedded World conference last month",
+      "business_goal": "Warm up lead for enterprise toolchain deal"
+    },
+    "gift_context": {
+      "occasion": "Post-conference follow-up",
+      "budget_min": 40,
+      "budget_max": 80,
+      "currency": "EUR",
+      "country": "Germany"
+    }
+  },
+  {
+    "name": "Amira Hassan",
+    "role": "VP Marketing",
+    "company": "Luminary Brands",
+    "location": "Dubai, UAE",
+    "linkedin_profile": {
+      "headline": "VP Marketing at Luminary Brands | Brand Strategy | Digital Growth | MENA",
+      "about": "I build brands that connect with people. 15 years across CPG and luxury retail in MENA and Europe. Passionate about storytelling, contemporary art, and running.",
+      "experience": [
+        {
+          "title": "VP Marketing",
+          "company": "Luminary Brands",
+          "description": "Overseeing brand strategy, performance marketing, and influencer partnerships across MENA."
+        },
+        {
+          "title": "Regional Marketing Director",
+          "company": "L'Oreal",
+          "description": "Led luxury portfolio launches across UAE, KSA, and Egypt."
+        }
+      ],
+      "recent_posts": [
+        "Attended Art Dubai this weekend — the intersection of technology and contemporary art is stunning.",
+        "Our latest brand campaign just hit 10M impressions organically. Authenticity wins.",
+        "Morning run along JBR before the heat kicks in. Non-negotiable part of my routine."
+      ],
+      "recent_comments": [
+        "Completely agree — brand equity is built in the quiet moments, not just during campaigns.",
+        "That installation at Alserkal Avenue was breathtaking.",
+        "Founder-led marketing is having a moment and honestly it should have happened sooner."
+      ],
+      "engaged_topics": [
+        "Contemporary art",
+        "Brand strategy",
+        "Running and fitness",
+        "Luxury retail",
+        "Digital storytelling"
+      ]
+    },
+    "relationship_context": {
+      "relationship_type": "New prospect",
+      "last_interaction": "Intro call scheduled for next week",
+      "business_goal": "Establish rapport before first meeting"
+    },
+    "gift_context": {
+      "occasion": "Pre-meeting introduction gift",
+      "budget_min": 150,
+      "budget_max": 300,
+      "currency": "AED",
+      "country": "UAE"
+    }
+  }
+]

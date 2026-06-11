@@ -1,0 +1,251 @@
+{
+  "info": {
+    "name": "Gift Recommendation Agent",
+    "_postman_id": "gift-agent-v1",
+    "description": "Full API collection for the Gift Recommendation Agent.\n\nWorkflow:\n1. POST /api/workflow/run  →  get thread_id\n2. GET  /api/workflow/:id/stream  (or poll /api/workflow/:id)\n3. GET  /api/workflow/:id/steps   to inspect each agent step\n4. POST /api/workflow/:id/review  to approve/reject/edit/regenerate",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    { "key": "base_url",   "value": "http://localhost:8000", "type": "string" },
+    { "key": "thread_id",  "value": "PASTE_THREAD_ID_HERE",  "type": "string" }
+  ],
+  "item": [
+    {
+      "name": "🏥 Health",
+      "item": [
+        {
+          "name": "Health check",
+          "request": {
+            "method": "GET",
+            "url": "{{base_url}}/health",
+            "description": "Check if the API is running and see how many runs are active."
+          }
+        }
+      ]
+    },
+    {
+      "name": "🚀 Run Workflow",
+      "item": [
+        {
+          "name": "Run — single contact (Aarav Mehta)",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": "{{base_url}}/api/workflow/run",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"contacts\": [\n    {\n      \"name\": \"Aarav Mehta\",\n      \"role\": \"VP Sales\",\n      \"company\": \"Acme Corp\",\n      \"location\": \"Bengaluru, India\",\n      \"linkedin_profile\": {\n        \"headline\": \"VP Sales at Acme Corp | Enterprise SaaS | GTM Leadership\",\n        \"about\": \"I enjoy building high-performing revenue teams and scaling SaaS businesses across India and Southeast Asia.\",\n        \"experience\": [\n          { \"title\": \"VP Sales\", \"company\": \"Acme Corp\", \"description\": \"Leading enterprise sales, strategic accounts, and GTM expansion.\" },\n          { \"title\": \"Regional Sales Director\", \"company\": \"Salesforce\", \"description\": \"Managed enterprise accounts across BFSI and retail.\" }\n        ],\n        \"recent_posts\": [\n          \"Great sales teams are built on trust, coaching, and consistency.\",\n          \"India's SaaS ecosystem is entering an exciting new phase.\",\n          \"Still recovering from yesterday's India vs Australia match. What a game!\"\n        ],\n        \"recent_comments\": [\n          \"Completely agree — pipeline discipline matters more than heroic end-of-quarter selling.\",\n          \"Loved this take on customer-led growth.\",\n          \"Cricket teaches leadership better than most management books.\"\n        ],\n        \"engaged_topics\": [\"Cricket\", \"Revenue leadership\", \"SaaS GTM\", \"Customer-led growth\", \"Team building\"]\n      },\n      \"relationship_context\": {\n        \"relationship_type\": \"Prospective customer\",\n        \"last_interaction\": \"Positive discovery call last week\",\n        \"business_goal\": \"Nurture relationship before follow-up meeting\"\n      },\n      \"gift_context\": {\n        \"occasion\": \"Post-meeting thank you\",\n        \"budget_min\": 3000,\n        \"budget_max\": 5000,\n        \"currency\": \"INR\",\n        \"country\": \"India\"\n      }\n    }\n  ]\n}"
+            },
+            "description": "Start a workflow for Aarav Mehta. Returns immediately with thread_id. Copy the thread_id into the collection variable."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "var data = pm.response.json();",
+                  "if (data && data[0] && data[0].thread_id) {",
+                  "    pm.collectionVariables.set('thread_id', data[0].thread_id);",
+                  "    console.log('thread_id set to:', data[0].thread_id);",
+                  "}"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Run — all 6 contacts (paste from contacts.json)",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": "{{base_url}}/api/workflow/run",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"contacts\": []\n}",
+              "options": { "raw": { "language": "json" } }
+            },
+            "description": "Paste the contents of data/contacts.json inside the \"contacts\" array."
+          }
+        },
+        {
+          "name": "Run — upload contacts.json file",
+          "request": {
+            "method": "POST",
+            "url": "{{base_url}}/api/workflow/run-file",
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                { "key": "file", "type": "file", "src": "/path/to/contacts.json", "description": "Set src to your contacts.json path" }
+              ]
+            },
+            "description": "Upload the contacts.json file directly. Starts a workflow for every contact in the file."
+          }
+        }
+      ]
+    },
+    {
+      "name": "📊 Poll Status",
+      "item": [
+        {
+          "name": "List all runs",
+          "request": {
+            "method": "GET",
+            "url": "{{base_url}}/api/workflow/",
+            "description": "Get a summary of every workflow run in this session."
+          }
+        },
+        {
+          "name": "Get full result",
+          "request": {
+            "method": "GET",
+            "url": "{{base_url}}/api/workflow/{{thread_id}}",
+            "description": "Full structured output: signals, search trace, gifts, review status, errors."
+          }
+        }
+      ]
+    },
+    {
+      "name": "🔬 Intermediate Steps",
+      "item": [
+        {
+          "name": "All steps (in order)",
+          "request": {
+            "method": "GET",
+            "url": "{{base_url}}/api/workflow/{{thread_id}}/steps",
+            "description": "Returns every node's output in execution order. Great for debugging the agent's reasoning."
+          }
+        },
+        {
+          "name": "Step 1 — Profile signals",
+          "request": {
+            "method": "GET",
+            "url": "{{base_url}}/api/workflow/{{thread_id}}/signals",
+            "description": "What gifting signals did the agent extract from the LinkedIn profile? Shows strong signals, weak (inferred) signals, and sensitive attributes that were excluded."
+          }
+        },
+        {
+          "name": "Step 2 — Products considered",
+          "request": {
+            "method": "GET",
+            "url": "{{base_url}}/api/workflow/{{thread_id}}/products",
+            "description": "All products found via DuckDuckGo. Shows search queries used, which products came from trusted e-commerce domains, and extracted prices."
+          }
+        },
+        {
+          "name": "Steps 3–4 — Ranked gifts + messages",
+          "request": {
+            "method": "GET",
+            "url": "{{base_url}}/api/workflow/{{thread_id}}/gifts",
+            "description": "The top-3 ranked gift recommendations with confidence scores, risk levels, reasoning, and personalised messages."
+          }
+        },
+        {
+          "name": "Full trace (timing + errors)",
+          "request": {
+            "method": "GET",
+            "url": "{{base_url}}/api/workflow/{{thread_id}}/trace",
+            "description": "Complete execution trace: every step, retry count, all warnings/errors, and the thread_id this was regenerated from (if applicable)."
+          }
+        }
+      ]
+    },
+    {
+      "name": "👁 Real-time Stream (SSE)",
+      "item": [
+        {
+          "name": "SSE stream (open in browser or Postman)",
+          "request": {
+            "method": "GET",
+            "url": "{{base_url}}/api/workflow/{{thread_id}}/stream",
+            "description": "Server-Sent Events stream. Emits one JSON event per node completion.\n\nEvent types:\n- type:step   — node completed (includes output summary)\n- type:status — status changed\n- type:done   — workflow paused for review or finished\n- type:error  — workflow failed\n\nNote: Postman supports SSE — open the request, click Send, and watch the response stream in real time."
+          }
+        }
+      ]
+    },
+    {
+      "name": "✅ Human Review",
+      "item": [
+        {
+          "name": "Approve",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": "{{base_url}}/api/workflow/{{thread_id}}/review",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"action\": \"approve\",\n  \"tone\": \"professional\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Reject",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": "{{base_url}}/api/workflow/{{thread_id}}/review",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"action\": \"reject\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Edit gifts",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": "{{base_url}}/api/workflow/{{thread_id}}/review",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"action\": \"edit\",\n  \"tone\": \"warm\",\n  \"edited_gifts\": [\n    {\n      \"rank\": 1,\n      \"gift_name\": \"My manually edited gift name\",\n      \"product_url\": \"https://www.amazon.in/example\",\n      \"store\": \"Amazon India\",\n      \"estimated_price\": \"₹3,999\",\n      \"why_this_gift\": \"Updated reasoning\",\n      \"personalisation_reasoning\": \"Cricket interest\",\n      \"personalised_message\": \"Updated message here\",\n      \"confidence_score\": 0.9,\n      \"risk_level\": \"low\",\n      \"assumptions\": []\n    }\n  ]\n}"
+            }
+          }
+        },
+        {
+          "name": "Regenerate (with feedback)",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "url": "{{base_url}}/api/workflow/{{thread_id}}/review",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"action\": \"regenerate\",\n  \"feedback\": \"Focus more on cricket-themed gifts. Avoid generic business books.\",\n  \"tone\": \"warm\"\n}"
+            },
+            "description": "Starts a completely new workflow run for the same contact. Returns a new thread_id — update the collection variable."
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "var data = pm.response.json();",
+                  "if (data && data.new_thread_id) {",
+                  "    pm.collectionVariables.set('thread_id', data.new_thread_id);",
+                  "    console.log('New thread_id:', data.new_thread_id);",
+                  "}"
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "📚 Swagger / Docs",
+      "item": [
+        {
+          "name": "Swagger UI",
+          "request": { "method": "GET", "url": "{{base_url}}/docs" }
+        },
+        {
+          "name": "ReDoc",
+          "request": { "method": "GET", "url": "{{base_url}}/redoc" }
+        },
+        {
+          "name": "OpenAPI JSON schema",
+          "request": { "method": "GET", "url": "{{base_url}}/openapi.json" }
+        }
+      ]
+    }
+  ]
+}

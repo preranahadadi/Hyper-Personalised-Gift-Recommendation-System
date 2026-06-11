@@ -1,0 +1,10 @@
+.env
+backend/.env
+frontend/.env
+backend/workflow_history.sqlite3
+backend/workflow_history.sqlite3-*
+*.pyc
+__pycache__/
+.pytest_cache/
+node_modules/
+backend/static_build/
